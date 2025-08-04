@@ -1,0 +1,63 @@
+# AWS設定
+aws_region = "ap-northeast-1"
+
+# ドメイン設定
+domain_name = "example.com"
+
+# VPC設定
+vpc_id = "vpc-12345678"
+public_subnets = [
+  "subnet-12345678",
+  "subnet-87654321"
+]
+
+# ALB設定
+alb_name = "my-external-alb"
+enable_deletion_protection = false
+enable_access_logs = true
+
+# アプリケーションポート設定
+app_port = 3000
+service_a_admin_port = 8080
+service_b_admin_port = 8081
+
+# ヘルスチェック設定
+app_health_check_path = "/health"
+service_a_health_check_path = "/"
+service_b_health_check_path = "/"
+
+# 内部ALBのセキュリティグループID（オプション）
+# internal_alb_sg_id = "sg-12345678"
+
+# 認証設定
+enable_cognito_auth = true
+
+# 監視設定
+enable_cloudwatch_alarms = true
+
+# WAF設定（オプション）
+enable_waf = false
+allowed_admin_ips = [
+  "203.0.113.0/32",  # オフィスIP
+  "198.51.100.0/32"  # VPN IP
+]
+
+# ELBアカウントID（リージョン別）
+# ap-northeast-1: 582318560864
+# us-east-1: 127311923021
+# us-west-2: 797873946194
+elb_account_id = "582318560864"
+
+# ECS設定（オプション）
+# ecs_cluster_name = "my-cluster"
+# app_task_definition_arn = "arn:aws:ecs:region:account:task-definition/app:1"
+# service_a_task_definition_arn = "arn:aws:ecs:region:account:task-definition/service-a:1"
+# service_b_task_definition_arn = "arn:aws:ecs:region:account:task-definition/service-b:1"
+
+# タグ設定
+tags = {
+  Environment = "production"
+  Project     = "admin-portal"
+  ManagedBy   = "terraform"
+  Owner       = "platform-team"
+}
