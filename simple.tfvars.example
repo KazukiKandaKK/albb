@@ -1,0 +1,28 @@
+# AWS設定
+aws_region = "ap-northeast-1"
+
+# VPC設定
+vpc_id = "vpc-12345678"
+public_subnets = [
+  "subnet-12345678",
+  "subnet-87654321"
+]
+
+# アプリケーションポート設定
+app_port = 3000
+service_a_admin_port = 8080
+service_b_admin_port = 8081
+
+# IP制限設定（セキュリティ重要）
+# WARNING: デフォルトは全公開 ["0.0.0.0/0"]
+# 本番環境では必ず特定IPに制限してください
+allowed_admin_ips = [
+  "203.0.113.0/32",    # オフィスIP
+  "198.51.100.0/32",   # VPN IP
+  "10.0.0.0/8"         # VPC内部
+]
+
+# ルーティング方式選択
+# false: パスベース方式 (/admin-a/, /admin-b/)
+# true:  別ポート方式 (:8080, :8081)
+enable_separate_ports = false
